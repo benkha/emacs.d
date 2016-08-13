@@ -147,6 +147,11 @@ With a prefix ARG open line above the current line."
 
 (require 'smartparens-config)
 
+(electric-pair-mode)
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
+
 ;; disable blinking cursor
 (blink-cursor-mode -1)
 
@@ -155,5 +160,12 @@ With a prefix ARG open line above the current line."
               vc-ignore-dir-regexp
               tramp-file-name-regexp))
 
+;; (setq helm-grep-default-command
+;;       "ack -Hn --color --smart-case --no-group %e %p %f"
+;;       helm-grep-default-recurse-command
+;;       "ack -H --color --smart-case --no-group %e %p %f")
+
+(setq helm-grep-default-command
+      "grep --color=always -a -d recurse %e -n%cH -e %p %f")
 (provide 'init-local)
 ;;; init-local ends here
