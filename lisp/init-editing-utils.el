@@ -84,9 +84,9 @@
   (global-prettify-symbols-mode))
 
 
-;; (require-package 'undo-tree)
-;; (global-undo-tree-mode)
-;; (diminish 'undo-tree-mode)
+(require-package 'undo-tree)
+(global-undo-tree-mode)
+(diminish 'undo-tree-mode)
 
 
 (require-package 'highlight-symbol)
