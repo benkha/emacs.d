@@ -7,13 +7,14 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x /") 'helm-recentf)
 
 (global-linum-mode 1)
 
 (require 'yasnippet)
 (yas-global-mode 1)
 
-(global-set-key (kbd "C-c k") 'kill-this-buffer)
+;; (global-set-key (kbd "C-c k") 'kill-this-buffer)
 
 (global-set-key (kbd "C-}") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-{") 'shrink-window-horizontally)
@@ -67,14 +68,20 @@ With a prefix ARG open line above the current line."
 (global-set-key [(control shift return)] 'prelude-smart-open-line-above)
 
 (require 'smartparens-config)
-
 (electric-pair-mode)
 
+(require 'avy)
+
+(require 'iedit)
+
+
+(global-set-key (kbd "C-:") 'avy-goto-char-2)
+(global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "M-i") 'imenu)
 (require 'wgrep-helm)
-(provide 'init-local)
-(require 'iedit)
 (add-hook 'tex-mode-hook
           #'(lambda () (setq ispell-parser 'tex)))
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
+(provide 'init-local)
 ;;; init-local ends here
