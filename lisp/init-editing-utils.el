@@ -84,9 +84,9 @@
   (global-prettify-symbols-mode))
 
 
-(require-package 'undo-tree)
-(global-undo-tree-mode)
-(diminish 'undo-tree-mode)
+;; (require-package 'undo-tree)
+;; (global-undo-tree-mode)
+;; (diminish 'undo-tree-mode)
 
 
 (require-package 'highlight-symbol)
@@ -159,8 +159,8 @@
 (global-set-key (kbd "C-.") 'set-mark-command)
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
-(when (maybe-require-package 'avy)
-  (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1))
+;; (when (maybe-require-package 'avy)
+;;   (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1))
 
 (require-package 'multiple-cursors)
 ;; multiple-cursors
