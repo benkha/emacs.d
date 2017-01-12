@@ -148,7 +148,7 @@
     (indent-guide-mode -1)))
 
 (defvar sanityinc/lispy-modes-hook
-  '(enable-paredit-mode
+  '(;; enable-paredit-mode
     turn-on-eldoc-mode
     redshank-mode
     sanityinc/disable-indent-guide
