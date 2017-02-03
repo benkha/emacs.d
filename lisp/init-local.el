@@ -75,8 +75,8 @@ With a prefix ARG open line above the current line."
 (require 'iedit)
 
 
-(global-set-key (kbd "C-:") 'avy-goto-char-2)
-(global-set-key (kbd "C-;") 'avy-goto-word-1)
+;; (global-set-key (kbd "C-:") 'avy-goto-char-2)
+;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "M-i") 'imenu)
 (require 'wgrep-helm)
 (add-hook 'tex-mode-hook
@@ -99,5 +99,19 @@ With a prefix ARG open line above the current line."
              (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)))
 
 (beacon-mode 1)
+
+(require 'key-chord)
+
+(key-chord-define-global "jj" 'avy-goto-word-1)
+(key-chord-define-global "jl" 'avy-goto-line)
+(key-chord-define-global "jk" 'avy-goto-char)
+(key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
+(key-chord-define-global "uu" 'undo-tree-visualize)
+(key-chord-define-global "xx" 'execute-extended-command)
+(key-chord-define-global "yy" 'browse-kill-ring)
+(key-chord-define-global "ii" 'iedit-mode)
+
+
+(key-chord-mode +1)
 (provide 'init-local)
 ;;; init-local ends here
