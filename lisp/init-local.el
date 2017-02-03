@@ -1,6 +1,7 @@
 (toggle-frame-maximized)
 
-(global-set-key (kbd "M-o") 'other-window) ; cursor to other pane
+;; (global-set-key (kbd "M-o") 'other-window) ; cursor to other pane
+(global-set-key (kbd "M-o") 'ace-window) ; cursor to other pane
 
 (require 'helm-config)
 (helm-mode 1)
@@ -113,5 +114,6 @@ With a prefix ARG open line above the current line."
 
 
 (key-chord-mode +1)
+(global-set-key [remap kill-ring-save] 'easy-kill)
 (provide 'init-local)
 ;;; init-local ends here
