@@ -92,7 +92,10 @@ With a prefix ARG open line above the current line."
           '(lambda ()
              (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
 
-(define-key yas-minor-mode-map (kbd "<C-tab>")     'yas-expand)
-
+(add-hook 'yas-minor-mode-hook
+          '(lambda ()
+             (define-key yas-minor-mode-map (kbd "TAB") nil)
+             (define-key yas-minor-mode-map (kbd "<tab>") nil)
+             (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)))
 (provide 'init-local)
 ;;; init-local ends here
