@@ -5,7 +5,7 @@
 (require 'helm-config)
 (helm-mode 1)
 ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x /") 'helm-recentf)
 
@@ -83,7 +83,7 @@ With a prefix ARG open line above the current line."
           #'(lambda () (setq ispell-parser 'tex)))
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq delete-old-versions -1)
-(setq version-control t)
+;; (setq version-control t)
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
 
@@ -97,5 +97,7 @@ With a prefix ARG open line above the current line."
              (define-key yas-minor-mode-map (kbd "TAB") nil)
              (define-key yas-minor-mode-map (kbd "<tab>") nil)
              (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)))
+
+(beacon-mode 1)
 (provide 'init-local)
 ;;; init-local ends here
