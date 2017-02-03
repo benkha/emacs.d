@@ -4,7 +4,7 @@
 
 (require 'helm-config)
 (helm-mode 1)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x /") 'helm-recentf)
@@ -86,5 +86,13 @@ With a prefix ARG open line above the current line."
 (setq version-control t)
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+
+(electric-pair-mode)
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
+
+(define-key yas-minor-mode-map (kbd "<C-tab>")     'yas-expand)
+
 (provide 'init-local)
 ;;; init-local ends here
