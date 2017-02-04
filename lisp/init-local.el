@@ -115,5 +115,9 @@ With a prefix ARG open line above the current line."
 
 (key-chord-mode +1)
 (global-set-key [remap kill-ring-save] 'easy-kill)
+
+(require 'crux)
+(require 'rect)
+(crux-with-region-or-line kill-region)
 (provide 'init-local)
 ;;; init-local ends here
