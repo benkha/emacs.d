@@ -116,6 +116,8 @@ With a prefix ARG open line above the current line."
 (key-chord-mode +1)
 (global-set-key [remap kill-ring-save] 'easy-kill)
 
+(setq-default TeX-engine 'xetex)
+
 (require 'crux)
 (require 'rect)
 (crux-with-region-or-line kill-region)
