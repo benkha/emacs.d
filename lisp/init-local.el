@@ -111,6 +111,8 @@ With a prefix ARG open line above the current line."
 (key-chord-define-global "xx" 'execute-extended-command)
 (key-chord-define-global "yy" 'browse-kill-ring)
 (key-chord-define-global "ii" 'iedit-mode)
+(key-chord-define-global "gg" 'goto-line)
+(key-chord-define-global "dd" 'sanityinc/toggle-delete-other-windows)
 
 
 (key-chord-mode +1)
@@ -121,5 +123,17 @@ With a prefix ARG open line above the current line."
 (require 'crux)
 (require 'rect)
 (crux-with-region-or-line kill-region)
+
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
+
 (provide 'init-local)
 ;;; init-local ends here
