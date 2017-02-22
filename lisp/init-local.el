@@ -63,22 +63,15 @@ With a prefix ARG open line above the current line."
 (global-set-key [(shift return)] 'prelude-smart-open-line)
 (global-set-key [(control shift return)] 'prelude-smart-open-line-above)
 
-;; (require 'smartparens-config)
-;; (electric-pair-mode)
-
 (require 'avy)
 
 (require 'iedit)
 
-
-;; (global-set-key (kbd "C-:") 'avy-goto-char-2)
-;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "M-i") 'imenu)
 (add-hook 'tex-mode-hook
           #'(lambda () (setq ispell-parser 'tex)))
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq delete-old-versions -1)
-;; (setq version-control t)
 (setq vc-make-backup-files t)
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
 
@@ -120,5 +113,8 @@ With a prefix ARG open line above the current line."
 (crux-with-region-or-line kill-region)
 
 (setq magit-completing-read-function 'ivy-completing-read)
+
+(global-set-key "\C-s" 'swiper)
+(setq ivy-wrap t)
 (provide 'init-local)
 ;;; init-local ends here
