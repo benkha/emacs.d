@@ -8,7 +8,14 @@
 ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 ;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x /") 'helm-recentf)
+(global-set-key (kbd "C-x /") 'ido-recentf-open)
+
+(defun ido-recentf-open ()
+  "Use `ido-completing-read' to \\[find-file] a recent file"
+  (interactive)
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
 
 (global-linum-mode 1)
 
@@ -110,9 +117,9 @@ With a prefix ARG open line above the current line."
 (key-chord-define-global "uu" 'undo-tree-visualize)
 (key-chord-define-global "xx" 'execute-extended-command)
 (key-chord-define-global "yy" 'browse-kill-ring)
-(key-chord-define-global "ii" 'iedit-mode)
-(key-chord-define-global "gg" 'goto-line)
-(key-chord-define-global "dd" 'sanityinc/toggle-delete-other-windows)
+(key-chord-define-global "II" 'iedit-mode)
+(key-chord-define-global "GG" 'goto-line)
+(key-chord-define-global "DD" 'sanityinc/toggle-delete-other-windows)
 
 
 (key-chord-mode +1)
