@@ -3,19 +3,7 @@
 ;; (global-set-key (kbd "M-o") 'other-window) ; cursor to other pane
 (global-set-key (kbd "M-o") 'ace-window) ; cursor to other pane
 
-(require 'helm-config)
-(helm-mode 1)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-;; (global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x /") 'ido-recentf-open)
-
-(defun ido-recentf-open ()
-  "Use `ido-completing-read' to \\[find-file] a recent file"
-  (interactive)
-  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
-      (message "Opening file...")
-    (message "Aborting")))
+(global-set-key (kbd "C-x /") 'counsel-recentf)
 
 (global-linum-mode 1)
 
@@ -86,7 +74,6 @@ With a prefix ARG open line above the current line."
 ;; (global-set-key (kbd "C-:") 'avy-goto-char-2)
 ;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "M-i") 'imenu)
-(require 'wgrep-helm)
 (add-hook 'tex-mode-hook
           #'(lambda () (setq ispell-parser 'tex)))
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
@@ -120,6 +107,7 @@ With a prefix ARG open line above the current line."
 (key-chord-define-global "II" 'iedit-mode)
 (key-chord-define-global "GG" 'goto-line)
 (key-chord-define-global "DD" 'sanityinc/toggle-delete-other-windows)
+(key-chord-define-global "SS" 'counsel-ag)
 
 
 (key-chord-mode +1)
@@ -131,16 +119,6 @@ With a prefix ARG open line above the current line."
 (require 'rect)
 (crux-with-region-or-line kill-region)
 
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
-
-(require 'ido-vertical-mode)
-(ido-vertical-mode)
-
+(setq magit-completing-read-function 'ivy-completing-read)
 (provide 'init-local)
 ;;; init-local ends here
