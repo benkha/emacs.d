@@ -117,8 +117,9 @@ With a prefix ARG open line above the current line."
 
 (setq magit-completing-read-function 'ivy-completing-read)
 
-(global-set-key "\C-s" 'swiper)
-(setq ivy-wrap t)
+(global-set-key "\C-s" 'counsel-grep-or-swiper)
+(global-set-key "\C-r" 'counsel-grep-or-swiper)
+(global-set-key (kbd "C-c u") 'swiper-all)
 
 (setq markdown-command "marked")
 
@@ -128,6 +129,45 @@ With a prefix ARG open line above the current line."
      (define-key company-active-map [tab] 'company-select-next)))
 
 (setq company-selection-wrap-around t)
-(setq company-idle-delay 0.2)
+(setq company-idle-delay 0.1)
+
+(defun ivy-dired-mark (arg)
+  (interactive "p")
+  (dotimes (_i arg)
+    (with-ivy-window
+      (dired-mark 1))
+    (ivy-next-line 1)
+    (ivy--exhibit)))
+
+(defun ivy-dired-unmark (arg)
+  (interactive "p")
+  (dotimes (_i arg)
+    (with-ivy-window
+      (dired-unmark 1))
+    (ivy-next-line 1)
+    (ivy--exhibit)))
+
+(defun ivy-replace ()
+  (interactive)
+  (let ((from (with-ivy-window
+                (move-beginning-of-line nil)
+                (when (re-search-forward
+                       (ivy--regex ivy-text) (line-end-position) t)
+                  (match-string 0)))))
+    (if (null from)
+        (user-error "No match")
+      (let ((rep (read-string (format "Replace [%s] with: " from))))
+        (with-selected-window swiper--window
+          (undo-boundary)
+          (replace-match rep t t))))))
+
+(defun ivy-undo ()
+  (interactive)
+  (with-ivy-window
+    (undo)))
+
+(add-hook 'easy-kill-mode-sname)
+
+
 (provide 'init-local)
 ;;; init-local ends here
