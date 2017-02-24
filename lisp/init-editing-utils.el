@@ -150,7 +150,7 @@
 ;;----------------------------------------------------------------------------
 ;; Rectangle selections, and overwrite text when the selection is active
 ;;----------------------------------------------------------------------------
-(cua-selection-mode t)                  ; for rectangles, CUA is nice
+;; (cua-selection-mode t)                  ; for rectangles, CUA is nice
 
 
 ;;----------------------------------------------------------------------------

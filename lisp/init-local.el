@@ -96,12 +96,15 @@ With a prefix ARG open line above the current line."
 (key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
 (key-chord-define-global "uu" 'undo-tree-visualize)
 (key-chord-define-global "xx" 'execute-extended-command)
-(key-chord-define-global "yy" 'browse-kill-ring)
+(key-chord-define-global "yy" 'counsel-yank-pop)
 (key-chord-define-global "II" 'iedit-mode)
 (key-chord-define-global "GG" 'goto-line)
-(key-chord-define-global "DD" 'sanityinc/toggle-delete-other-windows)
+(key-chord-define-global "qq" 'sanityinc/toggle-delete-other-windows)
 (key-chord-define-global "SS" 'counsel-ag)
 
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
 
 (key-chord-mode +1)
 (global-set-key [remap kill-ring-save] 'easy-kill)
@@ -116,5 +119,15 @@ With a prefix ARG open line above the current line."
 
 (global-set-key "\C-s" 'swiper)
 (setq ivy-wrap t)
+
+(setq markdown-command "marked")
+
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "TAB") 'company-select-next)
+     (define-key company-active-map [tab] 'company-select-next)))
+
+(setq company-selection-wrap-around t)
+(setq company-idle-delay 0.2)
 (provide 'init-local)
 ;;; init-local ends here
