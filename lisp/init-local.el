@@ -166,5 +166,8 @@ With a prefix ARG open line above the current line."
   (with-ivy-window
     (undo)))
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'flatland t)
+
 (provide 'init-local)
 ;;; init-local ends here
