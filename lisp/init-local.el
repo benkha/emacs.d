@@ -166,8 +166,5 @@ With a prefix ARG open line above the current line."
   (with-ivy-window
     (undo)))
 
-(add-hook 'easy-kill-mode-sname)
-
-
 (provide 'init-local)
 ;;; init-local ends here
