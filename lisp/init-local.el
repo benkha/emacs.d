@@ -104,7 +104,7 @@ With a prefix ARG open line above the current line."
 
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "C-x C-r") 'ivy-resume)
 
 (key-chord-mode +1)
 (global-set-key [remap kill-ring-save] 'easy-kill)
@@ -167,7 +167,7 @@ With a prefix ARG open line above the current line."
     (undo)))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'flatland t)
+;; (load-theme 'darkburn t)
 
 (provide 'init-local)
 ;;; init-local ends here
