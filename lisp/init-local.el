@@ -7,6 +7,11 @@
 
 (global-linum-mode 1)
 
+(if (eq system-type 'darwin)
+    (progn
+      (setq mac-option-modifier 'meta)))
+
+
 (require 'yasnippet)
 (yas-global-mode 1)
 
@@ -166,8 +171,11 @@ With a prefix ARG open line above the current line."
   (with-ivy-window
     (undo)))
 
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(set-face-attribute 'default nil :height 200)
 ;; (load-theme 'darkburn t)
+
 
 (provide 'init-local)
 ;;; init-local ends here
