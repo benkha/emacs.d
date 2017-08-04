@@ -123,7 +123,7 @@ With a prefix ARG open line above the current line."
 (setq magit-completing-read-function 'ivy-completing-read)
 
 (global-set-key "\C-s" 'counsel-grep-or-swiper)
-(global-set-key "\C-r" 'counsel-grep-or-swiper)
+;; (global-set-key "\C-r" 'counsel-grep-or-swiper)
 (global-set-key (kbd "C-c u") 'swiper-all)
 
 (setq markdown-command "marked")
@@ -173,8 +173,11 @@ With a prefix ARG open line above the current line."
 
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(set-face-attribute 'default nil :height 200)
-;; (load-theme 'darkburn t)
+(set-face-attribute 'default nil :height 150)
+
+(require 'vlf-setup)
+(custom-set-variables
+ '(vlf-application 'dont-ask))
 
 
 (provide 'init-local)
