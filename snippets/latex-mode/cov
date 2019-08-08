@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cov
+# key: cov
+# --
+\mathrm{Cov}\left[$1\right]$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: hspace
+# key: hs
+# --
+\hspace{$1} $0

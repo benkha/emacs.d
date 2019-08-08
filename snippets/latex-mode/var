@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: var
+# key: var
+# --
+\mathrm{Var}\left[$1\right]$0

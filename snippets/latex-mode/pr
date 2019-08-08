@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pr
+# key: pr
+# --
+\mathbb{P}\left( $1 \right)$0

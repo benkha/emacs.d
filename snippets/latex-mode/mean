@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mean
+# key: me
+# --
+\mean{$1}$0
